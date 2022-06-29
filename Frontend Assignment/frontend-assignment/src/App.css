@@ -1,7 +1,21 @@
-.App {
-  text-align: center;
+body{
+  background-color:aliceblue;
 }
-
+.App {
+ 
+  border: 1px solid black;
+  width: 350px;
+  margin: auto;
+  margin-top: 200px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 30px;
+  
+}
+.heading{
+  margin: auto;
+  text-align: center;
+  color: rgb(245, 54, 54);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +49,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+  
+}
+.form-input > label{
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+.form-input>input{
+  height: 30px;
+  color: black;
+  font-size: 18px;
+}
+.form-input > p{
+  color: red;
+  margin-top: 1px;
+  margin: auto;
+}
+.form-input > button{
+  width: 230px;
+  margin: auto;
+  height: 40px;
+  margin-top: 20px;
+  background-color: rgb(145, 223, 82);
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+textarea{
+  resize: none;
+  height: 60px;
 }
