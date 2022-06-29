@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const router = express.Router()
 const Movie = require('../Models/Movie.model')
-const { handler } = require('./signin.controller')
+ const { handler } = require('./signin.controller')
 router.get('', async(req,res)=> {
     try{
         const movie = await Movie.find().lean().exec()

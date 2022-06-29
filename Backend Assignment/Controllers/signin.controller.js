@@ -23,7 +23,7 @@ const signinHandler = async(req, res) => {
             const sessionToken = uuid.v4()
         const now = new Date()
         const expiresAt = new Date(+now + 5000 * 1000)
-        const session = new Session(req.body.username, expiresAt)
+        const session = new Session(req.body, expiresAt)
         
         sessions[sessionToken] = session
         res.cookie("session_token", sessionToken, { expires: expiresAt })
@@ -55,10 +55,12 @@ const handler = (req,res,next)=> {
         // If the session token is not present in session map, return an unauthorized error
         res.status(401).end()
         
-    }if (userSession.isExpired()) {
-        delete sessions[sessionToken]
-        res.send("session expired").status(401).end()
     }
+    
+    // if (userSession.isExpired()) {
+    //     delete sessions[sessionToken]
+    //     res.send("session expired").status(401).end()
+    // }
     next()
 }
 
