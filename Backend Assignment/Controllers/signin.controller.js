@@ -43,7 +43,7 @@ const signinHandler = async(req, res) => {
 
 const handler = (req,res,next)=> {
     if (!req.cookies) {
-        res.status(401).end()
+        res.send("please login").status(401).end()
     }
     const sessionToken = req.cookies['session_token']
     if (!sessionToken) {
@@ -57,8 +57,7 @@ const handler = (req,res,next)=> {
         
     }if (userSession.isExpired()) {
         delete sessions[sessionToken]
-        res.status(401).end()
-     
+        res.send("session expired").status(401).end()
     }
     next()
 }
