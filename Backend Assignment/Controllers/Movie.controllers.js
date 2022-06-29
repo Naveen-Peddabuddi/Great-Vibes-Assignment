@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const router = express.Router()
 const Movie = require('../Models/Movie.model')
+const { handler } = require('./signin.controller')
 router.get('', async(req,res)=> {
     try{
         const movie = await Movie.find().lean().exec()
@@ -20,7 +21,7 @@ router.post("", async(req,res)=> {
        return res.send(e.message)
     }
 })
-router.delete("/delete/:_id", async(req,res)=> {
+router.delete("/delete/:_id",handler, async(req,res)=> {
     try{
         const movie = await Movie.findByIdAndDelete(req.params._id)
         res.send(movie)
@@ -29,7 +30,7 @@ router.delete("/delete/:_id", async(req,res)=> {
         res.send(e.message)
     }
 })
-router.patch("/update/:_id", async(req,res)=> {
+router.patch("/update/:_id",handler,async(req,res)=> {
     
     try{
         const movie = await Movie.findByIdAndUpdate(req.params._id,req.body)
