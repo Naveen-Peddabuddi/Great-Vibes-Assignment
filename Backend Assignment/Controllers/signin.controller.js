@@ -22,7 +22,7 @@ const signinHandler = async(req, res) => {
         if(users){
             const sessionToken = uuid.v4()
         const now = new Date()
-        const expiresAt = new Date(+now + 12000 * 1000)
+        const expiresAt = new Date(+now + 5000 * 1000)
         const session = new Session(req.body.username, expiresAt)
         
         sessions[sessionToken] = session
