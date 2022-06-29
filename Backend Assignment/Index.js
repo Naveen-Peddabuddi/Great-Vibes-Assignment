@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const connect = require('./MongoDB/MongoConnect')
 const Movie_add = require('./Controllers/Movie.controllers')
- app.use(express.json())
+app.use(express.json())
 
 app.use("/movie", Movie_add )
 
